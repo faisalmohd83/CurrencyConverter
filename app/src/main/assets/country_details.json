@@ -69,7 +69,8 @@
       "alpha-2": "EU",
       "alpha-3": "EUR",
       "currency-code": "EUR",
-      "currency-name": "Euro"
+      "currency-name": "Euro",
+      "flag-url": "https://restcountries.eu/data/deu.svg"
     },
     {
       "name": "United Kingdom of Great Britain and Northern Ireland",
@@ -148,7 +149,8 @@
       "alpha-2": "KR",
       "alpha-3": "KOR",
       "currency-code": "KRW",
-      "currency-name": "South Korean Won"
+      "currency-name": "South Korean Won",
+      "flag-url": "https://restcountries.eu/data/kor.svg"
     },
     {
       "name": "Mexico",

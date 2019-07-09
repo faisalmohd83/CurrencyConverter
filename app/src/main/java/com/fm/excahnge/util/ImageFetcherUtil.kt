@@ -8,17 +8,18 @@ import okhttp3.*
 import java.io.IOException
 
 /**
- *
+ * Helper class to fetch SVG images from remote efficiently
  */
-object ImageUtil {
+object ImageFetcherUtil {
 
     private var httpClient: OkHttpClient? = null
 
     /**
-     * Method to load the .svg image from remote i
+     * Method to load the SVG image from remote
      */
-    fun fetchSvgRemote(context: Context, url: String, target: ImageView) {
+    fun fetchRemoteSVGImage(context: Context, url: String, target: ImageView) {
 
+        // TODO: do async
         if (httpClient == null) {
             // Use cache for performance and basic offline capability
             httpClient = OkHttpClient.Builder()

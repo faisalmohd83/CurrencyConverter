@@ -1,7 +1,7 @@
-package com.fm.exchange
+package com.fm.exchange.model
 
 data class Response(
-	val date: String? = null,
-	val rates: Rates? = null,
-	val base: String? = null
+    val base: String,
+    val date: String,
+    val rates: Map<String, Double>
 )

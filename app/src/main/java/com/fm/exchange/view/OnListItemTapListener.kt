@@ -3,7 +3,7 @@ package com.fm.exchange.view
 /**
  *
  */
-interface OnRecycleViewItemTapListener {
+interface OnListItemTapListener {
 
     /**
      *

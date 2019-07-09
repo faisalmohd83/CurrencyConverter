@@ -8,15 +8,25 @@ import org.json.JSONObject
 import java.io.IOException
 import java.io.InputStream
 
-object SomeUtil {
+/**
+ * Helper class accommodate common Util methods
+ */
+object Utils {
 
-    private val TAG = "SomeUtil"
+    private val TAG = "Utils"
 
     /**
+     * Method to prepare the @{Currency} object with supplied parameters
      *
+     * @param currencyCode to prepare the @{Currency} object
+     * @param CurrencyRate to prepare the @{Currency} object
+     * @param context to prepare the @{Currency} object
+     *
+     * @return @{Currency} object
      */
-    fun getCurrencyDetails(currencyCode: String, CurrencyRate: Double, context: Context): Currency {
+    fun getCurrencyObject(currencyCode: String, CurrencyRate: Double, context: Context): Currency {
 
+        // TODO: do async
         val jsonObject: JSONObject?
         val jsonArray: JSONArray?
 
@@ -24,7 +34,8 @@ object SomeUtil {
             jsonObject = JSONObject(readJSONFromAsset(context))
             jsonArray = jsonObject.getJSONArray("countries")
         } catch (exception: Exception) {
-             return 
+            // TODO: handle the exception appropriately
+            return Currency(null, null, null, null)
         }
 
         var flagUrl: String? = null
@@ -44,7 +55,11 @@ object SomeUtil {
     }
 
     /**
+     * Util method to read the file from assets
      *
+     * @param context to read the assets
+     *
+     * @return read file content as String
      */
     private fun readJSONFromAsset(context: Context): String {
         return try {
