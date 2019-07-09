@@ -7,31 +7,29 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fm.exchange.R
 import com.fm.exchange.model.Currency
 import kotlinx.android.synthetic.main.activity_exchange.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.KoinComponent
 import java.util.*
 
-class ExchangeActivity : AppCompatActivity(), OnListItemTapListener {
+class ExchangeActivity : AppCompatActivity(), OnListItemTapListener, KoinComponent {
 
     private val TAG = "ExchangeActivity"
 
     private lateinit var mAdapter: ExchangeAdapter
-    private lateinit var viewModel: ExchangeViewModel
-    private lateinit var viewModelFactory: ViewModelFactory
+
+    //    private val mAdapter: ExchangeAdapter by inject()
+    private val mViewModel: ExchangeViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exchange)
 
-        // View Model
-        viewModelFactory = ViewModelFactory(application)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ExchangeViewModel::class.java)
-
-        mAdapter = ExchangeAdapter(this, this)
+        mAdapter = ExchangeAdapter(this)
 
         rvExchangeList.apply {
             layoutManager = LinearLayoutManager(context)
@@ -42,13 +40,13 @@ class ExchangeActivity : AppCompatActivity(), OnListItemTapListener {
 
     override fun onStart() {
         super.onStart()
-        viewModel.onStart()
+        mViewModel.onStart()
     }
 
     override fun onResume() {
         super.onResume()
         // Listen to data change
-        viewModel.getExchangeRatesList().observe(this, mListObserver)
+        mViewModel.getExchangeRatesList().observe(this, mListObserver)
     }
 
     private val mListObserver: Observer<List<Currency>> = Observer { list ->
@@ -73,16 +71,16 @@ class ExchangeActivity : AppCompatActivity(), OnListItemTapListener {
     }
 
     override fun onPause() {
-        viewModel.getExchangeRatesList().removeObserver(mListObserver)
+        mViewModel.getExchangeRatesList().removeObserver(mListObserver)
         super.onPause()
     }
 
     /**
      *
      */
-    override fun onItemTapped(currencyCode: String, currencyValue: String) {
+    override fun onItemTapped(currencyCode: String, currencyValue: Double) {
         Log.d(TAG, "Currency: $currencyCode , Value: $currencyValue")
-        viewModel.updateQuery(currencyCode, currencyValue)
+        mViewModel.updateQuery(currencyCode, currencyValue)
         rvExchangeList.smoothScrollToPosition(0)
     }
 
@@ -95,7 +93,7 @@ class ExchangeActivity : AppCompatActivity(), OnListItemTapListener {
     }
 
     override fun onStop() {
-        viewModel.onStop()
+        mViewModel.onStop()
         super.onStop()
     }
 }

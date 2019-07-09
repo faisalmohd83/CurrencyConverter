@@ -5,36 +5,42 @@ import android.util.Log
 import com.fm.exchange.model.Currency
 import org.json.JSONArray
 import org.json.JSONObject
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 import java.io.IOException
 import java.io.InputStream
 
 /**
  * Helper class accommodate common Util methods
  */
-object Utils {
+class GenericUtilsImpl : GenericUtils, KoinComponent {
 
-    private val TAG = "Utils"
+    private val TAG = "GenericUtils"
+
+    private val mContext: Context by inject()
 
     /**
      * Method to prepare the @{Currency} object with supplied parameters
      *
      * @param currencyCode to prepare the @{Currency} object
      * @param CurrencyRate to prepare the @{Currency} object
-     * @param context to prepare the @{Currency} object
      *
      * @return @{Currency} object
      */
-    fun getCurrencyObject(currencyCode: String, CurrencyRate: Double, context: Context): Currency {
+    override fun getCurrencyObject(
+        currencyCode: String,
+        CurrencyRate: Double
+    ): Currency {
 
         // TODO: do async
         val jsonObject: JSONObject?
         val jsonArray: JSONArray?
 
         try {
-            jsonObject = JSONObject(readJSONFromAsset(context))
+            jsonObject = JSONObject(readJSONFromAsset())
             jsonArray = jsonObject.getJSONArray("countries")
         } catch (exception: Exception) {
-            // TODO: handle the exception appropriately
+//             TODO: handle the exception appropriately
             return Currency(null, null, null, null)
         }
 
@@ -57,13 +63,11 @@ object Utils {
     /**
      * Util method to read the file from assets
      *
-     * @param context to read the assets
-     *
      * @return read file content as String
      */
-    private fun readJSONFromAsset(context: Context): String {
+    private fun readJSONFromAsset(): String {
         return try {
-            val inputStream: InputStream = context.assets.open("country_details.json")
+            val inputStream: InputStream = mContext.assets.open("country_details.json")
             inputStream.bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
             Log.e(TAG, "Caused $ioException, thrown back to caller")

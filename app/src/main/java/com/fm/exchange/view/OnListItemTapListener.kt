@@ -8,6 +8,6 @@ interface OnListItemTapListener {
     /**
      *
      */
-    fun onItemTapped(currencyCode: String, currencyValue: String)
+    fun onItemTapped(currencyCode: String, currencyValue: Double)
 
 }

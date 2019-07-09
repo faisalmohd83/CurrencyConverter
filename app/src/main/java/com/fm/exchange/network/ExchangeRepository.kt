@@ -1,4 +1,4 @@
-package network
+package com.fm.exchange.network
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
@@ -76,7 +76,7 @@ class ExchangeRepository internal constructor(context: Context) {
             val list = arrayListOf<Currency>()
 
             // set base values
-            list.add(0, Utils.getCurrencyObject(mBaseCurrency, mBaseRate, mContext))
+            list.add(0, GenericUtils.getCurrencyObject(mBaseCurrency, mBaseRate, mContext))
 
             currencies.forEach { (currencyCode, receivedRate) ->
 
@@ -88,7 +88,7 @@ class ExchangeRepository internal constructor(context: Context) {
                 }
                 Log.d(TAG, "value: {$receivedRate} , valueAdjusted: {$adjustedRate}")
 
-                list.add(Utils.getCurrencyObject(currencyCode, adjustedRate, mContext))
+                list.add(GenericUtils.getCurrencyObject(currencyCode, adjustedRate, mContext))
             }
             currencyList.postValue(list)
         } else {

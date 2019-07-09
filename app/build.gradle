@@ -34,6 +34,11 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
 
+    // di
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
+    implementation 'org.koin:koin-androidx-scope:2.0.1'
+    implementation 'org.koin:koin-android:2.0.1'
+
     // other
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
@@ -45,9 +50,11 @@ dependencies {
     implementation 'com.pixplicity.sharp:library:1.1.0'
 
     // test
+    testImplementation 'org.koin:koin-test:2.0.1'
     testImplementation 'junit:junit:4.12'
 
     // android test
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'org.koin:koin-test:2.0.1'
 }

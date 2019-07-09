@@ -1,11 +1,10 @@
 package com.fm.exchange.view
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.fm.excahnge.util.NumberFormatterUtil
-import com.fm.excahnge.util.Utils
+import androidx.lifecycle.ViewModel
+import com.fm.excahnge.util.GenericUtilsImpl
+import com.fm.excahnge.util.number.NumberFormatterUtilImpl
 import com.fm.exchange.common.ApiEndpoints
 import com.fm.exchange.common.RetrofitFactory
 import com.fm.exchange.model.Currency
@@ -13,9 +12,11 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 import java.util.concurrent.TimeUnit
 
-class ExchangeViewModel(application: Application) : AndroidViewModel(application) {
+class ExchangeViewModel : ViewModel(), KoinComponent {
 
     private val TAG = "ExchangeViewModel"
 
@@ -27,8 +28,11 @@ class ExchangeViewModel(application: Application) : AndroidViewModel(application
     private lateinit var mNetworkTimerDisposable: Disposable
     private lateinit var mDataFetcherDisposable: Disposable
 
+    private val mGenericUtils: GenericUtilsImpl by inject()
+    private val mFormatterUtil: NumberFormatterUtilImpl by inject()
+
     init {
-        fetchExchangeRates()
+        initTimedAPIRequest()
 //       var repository= ExchangeRepository.instance()
     }
 
@@ -36,7 +40,7 @@ class ExchangeViewModel(application: Application) : AndroidViewModel(application
      *
      */
     fun onStart() {
-        fetchExchangeRates()
+        initTimedAPIRequest()
     }
 
     /**
@@ -49,8 +53,8 @@ class ExchangeViewModel(application: Application) : AndroidViewModel(application
     /**
      *
      */
-    private fun fetchExchangeRates() {
-        Log.d(TAG, "fetchExchangeRates()")
+    private fun initTimedAPIRequest() {
+        Log.d(TAG, "initTimedAPIRequest()")
 
         mNetworkTimerDisposable = Observable.interval(0, 5, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
@@ -94,19 +98,12 @@ class ExchangeViewModel(application: Application) : AndroidViewModel(application
             val list = arrayListOf<Currency>()
 
             // set base values
-            list.add(0, Utils.getCurrencyObject(mBaseCurrency, mBaseRate, getApplication()))
+            list.add(0, mGenericUtils.getCurrencyObject(mBaseCurrency, mBaseRate))
 
             currencies.forEach { (currencyCode, receivedRate) ->
-
-                adjustedRate = try {
-                    NumberFormatterUtil.getAdjustedCurrencyRate(receivedRate, mBaseRate)
-                } catch (exception: NumberFormatException) {
-                    Log.e(TAG, exception.printStackTrace().toString())
-                    receivedRate * mBaseRate
-                }
+                adjustedRate = mFormatterUtil.getAdjustedCurrencyRate(receivedRate * mBaseRate)
                 Log.d(TAG, "value: {$receivedRate} , valueAdjusted: {$adjustedRate}")
-
-                list.add(Utils.getCurrencyObject(currencyCode, adjustedRate, getApplication()))
+                list.add(mGenericUtils.getCurrencyObject(currencyCode, adjustedRate))
             }
             currencyList.postValue(list)
 
@@ -142,14 +139,14 @@ class ExchangeViewModel(application: Application) : AndroidViewModel(application
     /**
      *
      */
-    fun updateQuery(baseCurrency: String, baseValue: String) {
+    fun updateQuery(baseCurrency: String, baseValue: Double) {
         Log.d(TAG, "updateQuery { baseCurrency : $baseCurrency , baseRate: $baseValue}")
 
         mBaseCurrency = baseCurrency
-        mBaseRate = baseValue.toDouble()
+        mBaseRate = baseValue
 
         freeCachedMemory()
-        fetchExchangeRates()
+        initTimedAPIRequest()
     }
 
     /**

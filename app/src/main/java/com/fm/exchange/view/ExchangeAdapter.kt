@@ -8,18 +8,24 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.fm.excahnge.util.ImageFetcherUtil
+import com.fm.excahnge.util.image.ImageFetcherUtilImpl
+import com.fm.excahnge.util.number.NumberFormatterUtilImpl
 import com.fm.exchange.R
 import com.fm.exchange.model.Currency
 import kotlinx.android.synthetic.main.exchange_list_row.view.*
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
 class ExchangeAdapter internal constructor(
-    private val mContext: Context,
     itemTapListener: OnListItemTapListener
 ) :
-    RecyclerView.Adapter<ExchangeAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ExchangeAdapter.ViewHolder>(), KoinComponent {
 
     private val TAG = "ExchangeAdapter"
+
+    private val mContext: Context by inject()
+    private val mImageUtil: ImageFetcherUtilImpl by inject()
+    private val mFormatterUtil: NumberFormatterUtilImpl by inject()
 
     private var mCurrencies = ArrayList<Currency>()
     private var mOnItemTapListener: OnListItemTapListener = itemTapListener
@@ -39,7 +45,7 @@ class ExchangeAdapter internal constructor(
 
         // flag icon
         val url = currency.flag_ulr
-        url.let { ImageFetcherUtil.fetchRemoteSVGImage(mContext, it!!, holder.view.imgCountryFlag) }
+        url.let { mImageUtil.fetchRemoteSVGImage(it!!, holder.view.imgCountryFlag) }
 
         // currency code
         holder.view.tvCurrencyCode.text = currency.code
@@ -80,7 +86,10 @@ class ExchangeAdapter internal constructor(
      */
     private fun updateListOnUserInput(currency: String, rate: String) {
         Log.d(TAG, "updateListOnUserInput { baseCurrency : $currency , baseRate: $rate}")
-        mOnItemTapListener.onItemTapped(currency, rate)
+        mOnItemTapListener.onItemTapped(
+            currency,
+            mFormatterUtil.getAdjustedCurrencyRate(rate.toDouble())
+        )
     }
 
     /**
