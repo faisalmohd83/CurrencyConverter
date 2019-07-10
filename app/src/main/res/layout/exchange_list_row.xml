@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="80dp"
+        android:maxHeight="240dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/imgCountryFlag"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_image_circle"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+                android:id="@+id/tvCurrencyCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvCurrencyName"
+                app:layout_constraintEnd_toStartOf="@+id/etAmount"
+                app:layout_constraintStart_toEndOf="@+id/imgCountryFlag"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/us_zipcodes" />
+
+        <TextView
+                android:id="@+id/tvCurrencyName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/etAmount"
+                app:layout_constraintStart_toEndOf="@+id/imgCountryFlag"
+                app:layout_constraintTop_toBottomOf="@+id/tvCurrencyCode"
+                tools:text="@tools:sample/lorem/random" />
+
+        <EditText
+                android:id="@+id/etAmount"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"
+                android:textAlignment="textEnd"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="LabelFor"
+                tools:targetApi="o" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

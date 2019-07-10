@@ -1,0 +1,268 @@
+{
+  "countries": [
+    {
+      "name": "Australia",
+      "alpha-2": "AU",
+      "alpha-3": "AUS",
+      "currency-code": "AUD",
+      "currency-name": "Australian Dollar",
+      "flag-url": "https://restcountries.eu/data/aus.svg"
+    },
+    {
+      "name": "Bulgaria",
+      "alpha-2": "BG",
+      "alpha-3": "BGR",
+      "currency-code": "BGN",
+      "currency-name": "Bulgarian Lev",
+      "flag-url": "https://restcountries.eu/data/bgr.svg"
+    },
+    {
+      "name": "Brazil",
+      "alpha-2": "BR",
+      "alpha-3": "BRA",
+      "currency-code": "BRL",
+      "currency-name": "Brazilian Real",
+      "flag-url": "https://restcountries.eu/data/bra.svg"
+    },
+    {
+      "name": "Canada",
+      "alpha-2": "CA",
+      "alpha-3": "CAN",
+      "currency-code": "CAD",
+      "currency-name": "Canadian Dollar",
+      "flag-url": "https://restcountries.eu/data/can.svg"
+    },
+    {
+      "name": "Switzerland",
+      "alpha-2": "CH",
+      "alpha-3": "CHE",
+      "currency-code": "CHF",
+      "currency-name": "Swiss Franc",
+      "flag-url": "https://restcountries.eu/data/che.svg"
+    },
+    {
+      "name": "China",
+      "alpha-2": "CN",
+      "alpha-3": "CHN",
+      "currency-code": "CNY",
+      "currency-name": "Chinese Yuan",
+      "flag-url": "https://restcountries.eu/data/chn.svg"
+    },
+    {
+      "name": "Czechia",
+      "alpha-2": "CZ",
+      "alpha-3": "CZE",
+      "currency-code": "CZK",
+      "currency-name": "Czech Republic Koruna",
+      "flag-url": "https://restcountries.eu/data/cze.svg"
+    },
+    {
+      "name": "Denmark",
+      "alpha-2": "DK",
+      "alpha-3": "DNK",
+      "currency-code": "DKK",
+      "currency-name": "Danish Krone",
+      "flag-url": "https://restcountries.eu/data/dnk.svg"
+    },
+    {
+      "name": "Europe",
+      "alpha-2": "EU",
+      "alpha-3": "EUR",
+      "currency-code": "EUR",
+      "currency-name": "Euro",
+      "flag-url": "https://restcountries.eu/data/deu.svg"
+    },
+    {
+      "name": "United Kingdom of Great Britain and Northern Ireland",
+      "alpha-2": "GB",
+      "alpha-3": "GBR",
+      "currency-code": "GBP",
+      "currency-name": "British Pound Sterling",
+      "flag-url": "https://restcountries.eu/data/gbr.svg"
+    },
+    {
+      "name": "Hong Kong",
+      "alpha-2": "HK",
+      "alpha-3": "HKG",
+      "currency-code": "HKD",
+      "currency-name": "Hong Kong Dollar",
+      "flag-url": "https://restcountries.eu/data/hkg.svg"
+    },
+    {
+      "name": "Croatia",
+      "alpha-2": "HR",
+      "alpha-3": "HRV",
+      "currency-code": "HRK",
+      "currency-name": "Croatian Kuna",
+      "flag-url": "https://restcountries.eu/data/hrv.svg"
+    },
+    {
+      "name": "Hungary",
+      "alpha-2": "HU",
+      "alpha-3": "HUN",
+      "currency-code": "HUF",
+      "currency-name": "Hungarian Forint",
+      "flag-url": "https://restcountries.eu/data/hun.svg"
+    },
+    {
+      "name": "Indonesia",
+      "alpha-2": "ID",
+      "alpha-3": "IDN",
+      "currency-code": "IDR",
+      "currency-name": "Indonesian Rupiah",
+      "flag-url": "https://restcountries.eu/data/idn.svg"
+    },
+    {
+      "name": "Israel",
+      "alpha-2": "IL",
+      "alpha-3": "ISR",
+      "currency-code": "ILS",
+      "currency-name": "Israeli New Sheqel",
+      "flag-url": "https://restcountries.eu/data/isr.svg"
+    },
+    {
+      "name": "India",
+      "alpha-2": "IN",
+      "alpha-3": "IND",
+      "currency-code": "INR",
+      "currency-name": "Indian Rupee",
+      "flag-url": "https://restcountries.eu/data/ind.svg"
+    },
+    {
+      "name": "Iceland",
+      "alpha-2": "IS",
+      "alpha-3": "ISL",
+      "currency-code": "ISK",
+      "currency-name": "Icelandic Króna",
+      "flag-url": "https://restcountries.eu/data/hun.svg"
+    },
+    {
+      "name": "Japan",
+      "alpha-2": "JP",
+      "alpha-3": "JPN",
+      "currency-code": "JPY",
+      "currency-name": "Japanese Yen",
+      "flag-url": "https://restcountries.eu/data/jpn.svg"
+    },
+    {
+      "name": "Korea, Republic of",
+      "alpha-2": "KR",
+      "alpha-3": "KOR",
+      "currency-code": "KRW",
+      "currency-name": "South Korean Won",
+      "flag-url": "https://restcountries.eu/data/kor.svg"
+    },
+    {
+      "name": "Mexico",
+      "alpha-2": "MX",
+      "alpha-3": "MEX",
+      "currency-code": "MXN",
+      "currency-name": "Mexican Peso",
+      "flag-url": "https://restcountries.eu/data/mex.svg"
+    },
+    {
+      "name": "Malaysia",
+      "alpha-2": "MY",
+      "alpha-3": "MYS",
+      "currency-code": "MYR",
+      "currency-name": "Malaysian Ringgit",
+      "flag-url": "https://restcountries.eu/data/mys.svg"
+    },
+    {
+      "name": "Norway",
+      "alpha-2": "NO",
+      "alpha-3": "NOR",
+      "currency-code": "NOK",
+      "currency-name": "Norwegian Krone",
+      "flag-url": "https://restcountries.eu/data/nor.svg"
+    },
+    {
+      "name": "New Zealand",
+      "alpha-2": "NZ",
+      "alpha-3": "NZL",
+      "currency-code": "NZD",
+      "currency-name": "New Zealand Dollar",
+      "flag-url": "https://restcountries.eu/data/nzl.svg"
+    },
+    {
+      "name": "Philippines",
+      "alpha-2": "PH",
+      "alpha-3": "PHL",
+      "currency-code": "PHP",
+      "currency-name": "Philippine Peso",
+      "flag-url": "https://restcountries.eu/data/phl.svg"
+    },
+    {
+      "name": "Poland",
+      "alpha-2": "PL",
+      "alpha-3": "POL",
+      "currency-code": "PLN",
+      "currency-name": "Polish Zloty",
+      "flag-url": "https://restcountries.eu/data/pol.svg"
+    },
+    {
+      "name": "Romania",
+      "alpha-2": "RO",
+      "alpha-3": "ROU",
+      "currency-code": "RON",
+      "currency-name": "Romanian Leu",
+      "flag-url": "https://restcountries.eu/data/rou.svg"
+    },
+    {
+      "name": "Russian Federation",
+      "alpha-2": "RU",
+      "alpha-3": "RUS",
+      "currency-code": "RUB",
+      "currency-name": "Russian Ruble",
+      "flag-url": "https://restcountries.eu/data/rus.svg"
+    },
+    {
+      "name": "Sweden",
+      "alpha-2": "SE",
+      "alpha-3": "SWE",
+      "currency-code": "SEK",
+      "currency-name": "Swedish Krona",
+      "flag-url": "https://restcountries.eu/data/swe.svg"
+    },
+    {
+      "name": "Singapore",
+      "alpha-2": "SG",
+      "alpha-3": "SGP",
+      "currency-code": "SGD",
+      "currency-name": "Singapore Dollar",
+      "flag-url": "https://restcountries.eu/data/sgp.svg"
+    },
+    {
+      "name": "Thailand",
+      "alpha-2": "TH",
+      "alpha-3": "THA",
+      "currency-code": "THB",
+      "currency-name": "Thai Baht",
+      "flag-url": "https://restcountries.eu/data/twn.svg"
+    },
+    {
+      "name": "Turkey",
+      "alpha-2": "TR",
+      "alpha-3": "TUR",
+      "currency-code": "TRY",
+      "currency-name": "Turkish Lira",
+      "flag-url": "https://restcountries.eu/data/tur.svg"
+    },
+    {
+      "name": "United States of America",
+      "alpha-2": "US",
+      "alpha-3": "USA",
+      "currency-code": "USD",
+      "currency-name": "United States Dollar",
+      "flag-url": "https://restcountries.eu/data/usa.svg"
+    },
+    {
+      "name": "South Africa",
+      "alpha-2": "ZA",
+      "alpha-3": "ZAF",
+      "currency-code": "ZAR",
+      "currency-name": "South African Rand",
+      "flag-url": "https://restcountries.eu/data/zaf.svg"
+    }
+  ]
+}
