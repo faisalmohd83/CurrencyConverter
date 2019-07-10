@@ -12,14 +12,9 @@ import java.util.concurrent.TimeUnit
 /**
  * Factory class for [ApiEndpoints]
  */
-object RetrofitFactory {
+class RetrofitFactory {
 
     private val TAG = "RetrofitFactory"
-
-    /**
-     * Base Url to fetch the exchange rates for the supplied currency.
-     */
-    private const val BASE_URL = "https://revolut.duckdns.org/"
 
     /**
      * Factory method to return the api endpoint.
@@ -70,5 +65,12 @@ object RetrofitFactory {
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
+    }
+
+    companion object {
+        /**
+         * Base Url to fetch the exchange rates for the supplied currency.
+         */
+        private const val BASE_URL = "https://revolut.duckdns.org/"
     }
 }

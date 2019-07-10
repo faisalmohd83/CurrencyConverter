@@ -4,16 +4,18 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.koin.core.KoinApplication
+import org.koin.core.context.startKoin
 import org.koin.core.inject
+import org.koin.dsl.module
 import org.koin.test.KoinTest
 
 class NumberFormatterUtilImplTest : KoinTest {
 
-    private val numberFormatterUtil: NumberFormatterUtil by inject()
+    private val numberFormatterUtil: NumberFormatterUtilImpl by inject()
 
     @Before
     fun setUp() {
-//         startKoin(module { single { appLevelModule } })
+//         startKoin(module { single { NumberFormatterUtilImpl } })
         KoinApplication.create()
     }
 

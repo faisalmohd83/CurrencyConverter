@@ -14,7 +14,7 @@ class GenericUtilsImplTest : KoinTest {
 
     @Before
     fun setUp() {
-//        startKoin(module { single { appLevelModule } })
+//        startKoin(module { single { diInjectionModule } })
     }
 
     @Test

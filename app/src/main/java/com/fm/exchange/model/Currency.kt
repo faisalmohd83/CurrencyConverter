@@ -7,5 +7,5 @@ data class Currency(
     val code: String?,
     val name: String?,
     val rate: Double? = 0.00,
-    val flag_ulr: String?
+    val flag_url: String?
 )

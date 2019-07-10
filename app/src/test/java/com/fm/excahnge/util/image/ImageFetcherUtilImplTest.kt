@@ -11,7 +11,7 @@ class ImageFetcherUtilImplTest : KoinTest {
 
     @Before
     fun setUp() {
-//         startKoin(module { single { appLevelModule } })
+//         startKoin(module { single { diInjectionModule } })
     }
 
     fun `sdf`() {

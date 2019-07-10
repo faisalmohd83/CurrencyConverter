@@ -41,10 +41,11 @@ class ExchangeAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         val currency = mCurrencies[position]
 
         // flag icon
-        val url = currency.flag_ulr
+        val url = currency.flag_url
         url.let { mImageUtil.fetchRemoteSVGImage(it!!, holder.view.imgCountryFlag) }
 
         // currency code
@@ -55,6 +56,8 @@ class ExchangeAdapter internal constructor(
 
         // currency rate
         holder.view.etAmount.setText("${currency.rate}")
+
+        //
         if (position == 0) {
             holder.view.etAmount.setOnEditorActionListener { v, actionId, event ->
                 if (actionId == EditorInfo.IME_ACTION_DONE /*|| event== KeyEvent.ACTION_UP*/) {
@@ -63,15 +66,6 @@ class ExchangeAdapter internal constructor(
                 }
                 false
             }
-
-            /*holder.view.etAmount.setOnKeyListener(View.OnKeyListener { _, keyCode, _ ->
-                if (keyCode == KeyEvent.KEYCODE_ENTER && keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
-                    //Perform Code
-                    updateListOnUserInput(currency.code, holder.view.etAmount.text.toString())
-                    return@OnKeyListener true
-                }
-                false
-            })*/
         } else {
             // on tap
             holder.view.setOnClickListener {

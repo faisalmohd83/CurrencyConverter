@@ -23,6 +23,8 @@ class ExchangeViewModel : ViewModel(), KoinComponent {
     private var mBaseCurrency = "EUR"
     private var mBaseRate = 1.0
 
+    private val api: ApiEndpoints
+
     private var currencyList = MutableLiveData<List<Currency>>().apply { emptyList<Currency>() }
 
     private lateinit var mNetworkTimerDisposable: Disposable
@@ -30,8 +32,10 @@ class ExchangeViewModel : ViewModel(), KoinComponent {
 
     private val mGenericUtils: GenericUtilsImpl by inject()
     private val mFormatterUtil: NumberFormatterUtilImpl by inject()
+    private val retrofitFactory: RetrofitFactory by inject()
 
     init {
+        api = retrofitFactory.create()
         initTimedAPIRequest()
 //       var repository= ExchangeRepository.instance()
     }
@@ -56,7 +60,7 @@ class ExchangeViewModel : ViewModel(), KoinComponent {
     private fun initTimedAPIRequest() {
         Log.d(TAG, "initTimedAPIRequest()")
 
-        mNetworkTimerDisposable = Observable.interval(0, 5, TimeUnit.SECONDS)
+        mNetworkTimerDisposable = Observable.interval(1, 5, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
@@ -70,7 +74,6 @@ class ExchangeViewModel : ViewModel(), KoinComponent {
     private fun callAPIEndPointsOnSuccess() {
         Log.d(TAG, "callAPIEndPointsOnSuccess()")
 
-        val api: ApiEndpoints = RetrofitFactory.create()
         Log.d(
             TAG,
             "callAPIEndPointsOnSuccess { baseCurrency : $mBaseCurrency , baseRate: $mBaseRate}"
