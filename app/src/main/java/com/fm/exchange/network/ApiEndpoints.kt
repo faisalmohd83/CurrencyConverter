@@ -1,4 +1,4 @@
-package com.fm.exchange.common
+package com.fm.exchange.network
 
 import com.fm.exchange.model.Response
 import io.reactivex.Observable

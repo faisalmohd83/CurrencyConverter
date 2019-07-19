@@ -1,4 +1,4 @@
-package com.fm.excahnge.util.number
+package com.fm.exchange.util.number
 
 /**
  *

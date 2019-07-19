@@ -1,7 +1,8 @@
-package com.fm.excahnge.util
+package com.fm.exchange.util
 
 import android.content.Context
 import android.util.Log
+import com.fm.excahnge.util.GenericUtils
 import com.fm.exchange.model.Currency
 import org.json.JSONArray
 import org.json.JSONObject

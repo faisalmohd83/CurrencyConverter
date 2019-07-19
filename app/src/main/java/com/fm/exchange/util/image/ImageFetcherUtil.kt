@@ -1,4 +1,4 @@
-package com.fm.excahnge.util.image
+package com.fm.exchange.util.image
 
 import android.widget.ImageView
 

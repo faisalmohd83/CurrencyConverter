@@ -1,4 +1,4 @@
-package com.fm.excahnge.util.image
+package com.fm.exchange.util.image
 
 import android.content.Context
 import android.widget.ImageView
@@ -39,7 +39,7 @@ class ImageFetcherUtilImpl : ImageFetcherUtil, KoinComponent {
 
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                val stream = response.body()!!.byteStream()
+                val stream = response.body!!.byteStream()
                 Sharp.loadInputStream(stream).into(imageView)
                 stream.close()
             }

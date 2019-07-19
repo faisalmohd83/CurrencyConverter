@@ -1,7 +1,8 @@
-package com.fm.excahnge.util.image
+package com.fm.exchange.util.image
 
-import org.junit.Assert
+import com.fm.exchange.di.utilsModule
 import org.junit.Before
+import org.koin.core.context.startKoin
 import org.koin.core.inject
 import org.koin.test.KoinTest
 
@@ -11,7 +12,7 @@ class ImageFetcherUtilImplTest : KoinTest {
 
     @Before
     fun setUp() {
-//         startKoin(module { single { diInjectionModule } })
+        startKoin { modules(utilsModule) }
     }
 
     fun `sdf`() {

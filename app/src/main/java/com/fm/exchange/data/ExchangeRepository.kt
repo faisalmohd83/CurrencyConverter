@@ -1,4 +1,4 @@
-package com.fm.exchange.network
+package com.fm.exchange.data
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData

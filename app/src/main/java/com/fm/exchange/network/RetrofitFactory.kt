@@ -1,6 +1,7 @@
-package com.fm.exchange.common
+package com.fm.exchange.network
 
 import android.util.Log
+import com.fm.exchange.BuildConfig
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -58,7 +59,11 @@ class RetrofitFactory {
         Log.d(TAG, "prepareHttpInterceptor()")
 
         val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        when {
+            BuildConfig.DEBUG -> interceptor.level = HttpLoggingInterceptor.Level.BODY
+            else -> interceptor.level = HttpLoggingInterceptor.Level.NONE
+        }
+
         return OkHttpClient.Builder()
             .addInterceptor(interceptor)
             .connectTimeout(30, TimeUnit.SECONDS)
