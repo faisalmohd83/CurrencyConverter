@@ -3,11 +3,11 @@ package com.fm.exchange.view
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.fm.excahnge.util.GenericUtilsImpl
-import com.fm.excahnge.util.number.NumberFormatterUtilImpl
-import com.fm.exchange.common.ApiEndpoints
-import com.fm.exchange.common.RetrofitFactory
 import com.fm.exchange.model.Currency
+import com.fm.exchange.network.ApiEndpoints
+import com.fm.exchange.network.RetrofitFactory
+import com.fm.exchange.util.GenericUtilsImpl
+import com.fm.exchange.util.number.NumberFormatterUtilImpl
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
