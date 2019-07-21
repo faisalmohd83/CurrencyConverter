@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.fm.excahnge.util.image.ImageFetcherUtilImpl
-import com.fm.excahnge.util.number.NumberFormatterUtilImpl
 import com.fm.exchange.R
 import com.fm.exchange.model.Currency
+import com.fm.exchange.util.image.ImageFetcherUtilImpl
+import com.fm.exchange.util.number.NumberFormatterUtilImpl
 import kotlinx.android.synthetic.main.exchange_list_row.view.*
 import org.koin.core.KoinComponent
 import org.koin.core.inject

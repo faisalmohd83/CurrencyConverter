@@ -20,16 +20,12 @@ class ExchangeActivity : AppCompatActivity(), OnListItemTapListener, KoinCompone
 
     private val TAG = "ExchangeActivity"
 
-    private lateinit var mAdapter: ExchangeAdapter
-
-    //    private val mAdapter: ExchangeAdapter by inject()
     private val mViewModel: ExchangeViewModel by viewModel()
+    private val mAdapter: ExchangeAdapter by lazy { ExchangeAdapter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exchange)
-
-        mAdapter = ExchangeAdapter(this)
 
         rvExchangeList.apply {
             layoutManager = LinearLayoutManager(context)
