@@ -18,12 +18,10 @@ android {
         applicationId "com.fm.exchange"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    /*signingConfigs {
+    signingConfigs {
         debug {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
@@ -36,37 +34,39 @@ android {
             storePassword 'android'
             storeFile file('../keystore/release.keystore')
         }
-    }*/
+    }
 
     // Specifies one flavor dimension.
-    // flavorDimensions "version"
+    flavorDimensions "app"
 
-    /*productFlavors {
+    productFlavors {
         dev {
-            signingConfig signingConfigs.debug
-            versionCode gitVersionCodeTime
+            dimension "app"
             versionName gitVersionName
+            versionCode gitVersionCodeTime
             applicationId "com.fm.exchange.dev"
+            signingConfig signingConfigs.debug
+        }
+        prod {
+            dimension "app"
+            versionName gitVersionName
+            versionCode gitVersionCode
+            applicationId "com.fm.exchange"
+            signingConfig signingConfigs.release
         }
 
-        prod {
-            signingConfig signingConfigs.release
-            versionCode gitVersionCode
-            versionName gitVersionName
-            applicationId "com.fm.exchange"
-        }
-    }*/
+    }
 
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), "$project.rootDir/tools/rules-proguard.pro"
-            // signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
         debug {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), "$project.rootDir/tools/rules-proguard-debug.pro"
-            // signingConfig signingConfigs.debug
+            signingConfig signingConfigs.debug
         }
     }
 
