@@ -1,4 +1,4 @@
-package com.fm.excahnge.util
+package com.fm.exchange.util
 
 import com.fm.exchange.model.Currency
 
